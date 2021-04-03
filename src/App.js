@@ -5,10 +5,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './components/auth/Login';
 import  NuevaCuenta from './components/auth/NuevaCuenta';
 import Proyectos from './components/proyectos/Proyectos';
+//importamos el provider
+import ProyectoState from './context/proyectos/proyectoState';
 
 function App() {
   return (
-    //se crean las rutas de acceso
+    <ProyectoState>
+    {/* se crean las rutas de acceso */}
     <Router>
       <Switch>
         
@@ -18,9 +21,8 @@ function App() {
 
       </Switch>
     </Router>
+    </ProyectoState>
   );
 }
 
 export default App;
-
-// Me quede en el video 199, habia que mostrar los datos listados desde listadotareas enviando al componente tarea
