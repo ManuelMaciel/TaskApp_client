@@ -1,12 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import Proyecto from './Proyecto';
+//importamos el context
+import proyectoContext from '../../context/proyectos/proyectoContext';
 
 const ListadoProyectos = () => {
-  const proyecto = [
-    {id: 1, nombre: 'MERN Stack'},
-    {id: 2, nombre: 'Python Web Scrapping'},
-    {id: 3, nombre: 'App Mascotas'}
-  ]
+  //obtiene los proyectos del initialState
+  const proyectosContext = useContext(proyectoContext);
+  const { proyecto, obtenerProyectos } = proyectosContext;
+
+  useEffect(() => {
+    obtenerProyectos();
+  }, [])
+
+  //no retorna nada si proyectos esta vacio
+  if(proyecto.length === 0) return null;
   return ( 
     <ul className='listado-proyectos'>
       {proyecto.map(p => (
