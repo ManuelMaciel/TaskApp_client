@@ -13,7 +13,7 @@ const ListadoProyectos = () => {
   }, [])
 
   //no retorna nada si proyectos esta vacio
-  if(proyecto.length === 0) return null;
+  if(proyecto.length === 0) return <p>No hay proyectos, comienza creando uno</p>;
   return ( 
     <ul className='listado-proyectos'>
       {proyecto.map(p => (
